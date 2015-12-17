@@ -1,5 +1,6 @@
-Welcome ACC Base APP UI Ver 2.0
+Welcome to Bristol the  ACC APP Framework
 -------------------
+#### Version 1 | Built on Foundation 5
 This is a library of modular styles powered by the framework of Zurb Foundation. This design was implemented for ACC Apps Construction. It is responsive and can be scaled up and down for the needs of the UI that is needed. Things to note this library is built with Sass to give the greatest flexablity for ACC App Builds. 
 
 ## Concept
