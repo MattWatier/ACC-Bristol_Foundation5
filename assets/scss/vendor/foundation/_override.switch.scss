@@ -1,0 +1,130 @@
+
+$switch-active-color:rebrand-color($select-color, 2);
+.switch-input-space{
+	@extend .input-space;
+	white-space: nowrap;
+	display:table;
+	padding-bottom: .5rem;
+	padding-top: .5rem;
+	.with-underline{border-bottom: 1px dotted color( rebrand-color($black,3), 20);}
+	}
+.switch {
+  @include switch-base($switch-paddle-transition-speed, $switch-paddle-transition-ease);
+  @include switch-size($switch-height-sml);
+  @include switch-style($switch-paddle-bg, $switch-active-color, true);
+  display:inline-block;
+  display:table-cell;
+  width: 1%;
+  :focus + label{
+	-webkit-box-shadow:inset  0px 0px 10px 2px rebrand-color($primary-color,2);
+	-moz-box-shadow:inset  0px 0px 10px 2px rebrand-color($primary-color,2);
+	box-shadow: inset 0px 0px 10px 2px rebrand-color($primary-color,2);
+  }
+    :focus + label:after{
+	-webkit-box-shadow:  0px 0px 10px 2px rebrand-color($primary-color,2);
+	-moz-box-shadow:  0px 0px 10px 2px rebrand-color($primary-color,2);
+	box-shadow:  0px 0px 10px 2px rebrand-color($primary-color,2);
+  }
+}
+
+.switch-value{
+	@extend .h4;
+	display: inline-block;
+	height: 2rem;
+	vertical-align: top;
+	padding: 0 0 0 .75rem;
+	margin: 0;
+	position: relative;
+	background-color:transparent;
+	color:fontcolor($black);
+	@include font-slab;
+	white-space: normal;
+	display:table-cell;
+}
+input + label:after {
+	.switch.check-visible &,.switch.dot-visible &,.switch.x-visible &{z-index: 100;}
+}
+.switch.check-visible input + label:before,.switch.x-visible input + label:before,.switch.dot-visible input + label:before,{
+	position: absolute; 
+	display: block;
+	height: 1.5em;
+	width: 1.5em; 
+	z-index: 1;
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	text-align: center;
+	vertical-align: middle;
+}
+.tiny.switch input + label:before{font-size: 84%;}
+.large.switch input + label:before{font-size: 140%;}
+.switch.x-visible input + label:before {
+	    content: "\f00d";
+   	    left: -1.35em;
+	    top: .40em;
+	    color: #fff;
+
+}
+.switch.dot-visible input:checked + label:before,
+.switch.check-visible input:checked + label:before {
+		    left: -3.05em;
+		    top: .375em;
+		    color:mix($switch-active-color,#fff,30);
+}
+.switch.dot-visible input:checked + label:before {
+	    content: "\f058";
+}
+.switch.check-visible input:checked + label:before {
+	    content: "\f00c";
+}
+.switch.disabled label{
+	background:grey(30) url("../img/subtlenet2.png") repeat;
+	&:after{background-color:grey(10);
+	}
+}
+/**
+* Switch (Foundation Override):
+* `.switch` - Switches are a more visible and more touchable versions of checkbox and radio buttons. ADD `.check-visible` to a switch to make a check appear in the selected state of `.x-visible` to show the x when it is shut off. 
+* 
+*   @example
+*	<h3>Radio Buttons should use `.round` modifier</h3>
+*	<div class="switch-input-space group-divide row">
+*		<div class="switch round">
+*			<input name="radiobutton-switch" type="radio" id="radio-y">
+*			<label  for="radio-y" onclick=""></label>
+*		</div>
+*		<label  class="switch-value" for="radio-y">Radio buttons have `.round` on the `.switch`</label>		
+*	</div>
+*	<div class="switch-input-space group-divide row">
+*		<div class="switch round dot-visible">
+*			<input name="radiobutton-switch"  type="radio" id="radio-n">
+*			<label  for="radio-n"onclick=""></label>
+*		</div>
+*		<label  class="switch-value" for="radio-n">`.dot-visible` Radio button a dot will appear when selected</label>		
+*	</div>
+*	<h3>Checkboxes should use the `.radius` or no modifier at all</h3>
+*	<div class="switch-input-space group-divide row">
+*		<div class="switch check-visible radius">
+*			<input type="checkbox" id="hb-check0">
+*			<label  for="hb-check0"></label>
+*		</div>
+*		<label  class="switch-value" for="hb-check0">This is a checkbox is using the `.radius` modifier</label>		
+*	</div>
+*	<div class="switch-input-space group-divide row">
+*		<div class="switch check-visible">
+*			<input type="checkbox" id="hb-check2">
+*			<label  for="hb-check2"></label>
+*		</div>
+*		<label  class="switch-value" for="hb-check2">This is a checkbox a check should appear when selected</label>		
+*	</div>
+*	<div class="switch-input-space group-divide row">
+*		<div class="switch x-visible">
+*			<input type="checkbox" id="hb-check1">
+*			<label  for="hb-check1"></label>
+*		</div>
+*		<label  class="switch-value" for="hb-check1">"x-visible" When No is selected you should show an X</label>		
+*	</div>
+*   <a class="link" href="http://foundation.zurb.com/docs/components/switch.html">Foundation Documentation</a>
+*/
