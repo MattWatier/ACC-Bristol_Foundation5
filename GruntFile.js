@@ -172,7 +172,6 @@ module.exports = function(grunt){
 	grunt.loadNpmTasks('grunt-liquid');
 	grunt.loadNpmTasks('grunt-styledown');
 	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-sass-convert');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	// Default task.
