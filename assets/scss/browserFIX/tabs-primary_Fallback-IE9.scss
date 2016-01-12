@@ -1,3 +1,4 @@
+@import "../helpers/breakpoints";
 .tabs.primary{
 
 	@include bp(sm-down){
